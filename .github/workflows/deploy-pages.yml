@@ -15,8 +15,11 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -28,11 +31,12 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      # Fail fast if Pages would serve dev entry (raw repo index.html references /src/main.tsx)
       - name: Verify built index.html
         run: |
           if grep -qE 'src/main\.(tsx|ts|jsx|js)' dist/index.html; then
-            echo 'dist/index.html still points at Vite dev entry — upload would 404 on GitHub Pages.'
+            echo 'ERROR: dist/index.html still points at Vite dev entry'
+            echo 'This would result in 404 errors on GitHub Pages'
+            cat dist/index.html
             exit 1
           fi
 
@@ -40,12 +44,5 @@ jobs:
         with:
           path: dist
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - id: deployment
         uses: actions/deploy-pages@v4
