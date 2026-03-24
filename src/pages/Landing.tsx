@@ -20,7 +20,7 @@ export const Landing = () => {
           transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
         >
           <img
-            src={`${import.meta.env.BASE_URL}images/susan-hero.jpg`}
+            src={`${import.meta.env.BASE_URL}images/gallery-051.jpg`}
             alt={t.landing.name}
             className="hero-image"
           />
