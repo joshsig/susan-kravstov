@@ -6,7 +6,7 @@ import '../styles/Gallery.scss';
 const GALLERY_IMAGE_COUNT = 128;
 
 const galleryImages = Array.from({ length: GALLERY_IMAGE_COUNT }, (_, i) => ({
-  src: `/images/gallery-${String(i + 1).padStart(3, '0')}.jpg`,
+  src: `${import.meta.env.BASE_URL}images/gallery-${String(i + 1).padStart(3, '0')}.jpg`,
   title: `Memory ${i + 1}`,
 }));
 
