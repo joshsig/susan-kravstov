@@ -1,0 +1,111 @@
+/* ──────────────────────────────────────────
+ * TYPE SCALE
+ * Modular scale with 1.25 ratio
+ * ────────────────────────────────────────── */
+
+$type-base: 16px;
+$type-scale: 1.25;
+
+$type-xs: calc($type-base / $type-scale / $type-scale);  // ~10px
+$type-sm: calc($type-base / $type-scale);                 // ~13px
+$type-md: $type-base;                                     // 16px
+$type-lg: calc($type-base * $type-scale);                 // 20px
+$type-xl: calc($type-base * $type-scale * $type-scale);   // 25px
+$type-2xl: calc($type-base * $type-scale * $type-scale * $type-scale); // ~31px
+$type-3xl: 40px;
+$type-hero: 48px; // Minimum for script heading (Great Vibes)
+
+/* ──────────────────────────────────────────
+ * MOBILE TYPE SCALE
+ * Slightly smaller for mobile devices
+ * ────────────────────────────────────────── */
+
+$type-mobile-hero: 40px;
+$type-mobile-3xl: 32px;
+$type-mobile-2xl: 24px;
+$type-mobile-xl: 20px;
+$type-mobile-lg: 18px;
+$type-mobile-md: 16px;
+
+/* ──────────────────────────────────────────
+ * TYPOGRAPHY MIXINS
+ * ────────────────────────────────────────── */
+
+@mixin font-heading {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+@mixin font-subtitle {
+  font-family: var(--font-subtitle);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+@mixin font-body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.85;
+}
+
+/* ──────────────────────────────────────────
+ * HEADING STYLES
+ * ────────────────────────────────────────── */
+
+@mixin heading-hero {
+  @include font-heading;
+  font-size: $type-mobile-hero;
+  
+  @media (min-width: 768px) {
+    font-size: $type-hero;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 56px;
+  }
+}
+
+@mixin heading-large {
+  @include font-heading;
+  font-size: $type-mobile-3xl;
+  
+  @media (min-width: 768px) {
+    font-size: $type-3xl;
+  }
+}
+
+@mixin subtitle-large {
+  @include font-subtitle;
+  font-size: $type-mobile-xl;
+  font-weight: 300;
+  
+  @media (min-width: 768px) {
+    font-size: $type-xl;
+  }
+}
+
+@mixin subtitle-normal {
+  @include font-subtitle;
+  font-size: $type-md;
+  font-weight: 400;
+}
+
+@mixin body-large {
+  @include font-body;
+  font-size: 17px;
+  
+  @media (min-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+@mixin body-normal {
+  @include font-body;
+  font-size: $type-md;
+}
+
+@mixin body-small {
+  @include font-body;
+  font-size: $type-sm;
+}

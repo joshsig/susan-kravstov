@@ -1,0 +1,50 @@
+@use './typography' as *;
+
+.hover-gallery-section {
+  margin-top: var(--space-4xl);
+  padding-top: var(--space-3xl);
+  border-top: 3px solid var(--border-sky);
+  
+  .carousel-wrapper {
+    max-width: 100%;
+    margin-bottom: var(--space-2xl);
+    
+    @media (min-width: 768px) {
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .gallery-carousel {
+      --wa-carousel-pagination-color: var(--color-pastel-lavender);
+      --wa-carousel-navigation-color: var(--color-text-body);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 3px solid var(--border-coral);
+    }
+    
+    .carousel-image {
+      width: 100%;
+      height: auto;
+      max-height: 500px;
+      object-fit: cover;
+      display: block;
+      
+      @media (min-width: 768px) {
+        max-height: 600px;
+      }
+    }
+  }
+  
+  .gallery-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 2px dashed var(--border-peach);
+    
+    @media (min-width: 768px) {
+      margin-top: var(--space-3xl);
+    }
+  }
+}

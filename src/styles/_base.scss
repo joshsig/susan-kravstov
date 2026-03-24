@@ -1,0 +1,172 @@
+@use './typography' as *;
+
+/* ──────────────────────────────────────────
+ * BASE STYLES
+ * Global resets and base element styling
+ * ────────────────────────────────────────── */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  @include font-body;
+  font-size: $type-md;
+  color: var(--color-text-body);
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-page) 0%,
+    #FFF5F9 25%,
+    #F8F5FF 50%,
+    #F5FFFC 75%,
+    var(--color-bg-page) 100%
+  );
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* ──────────────────────────────────────────
+ * TYPOGRAPHY ELEMENTS
+ * ────────────────────────────────────────── */
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-heading);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--color-text-link);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  border-bottom: 2px solid transparent;
+  
+  &:hover,
+  &:focus {
+    color: var(--color-text-link-hover);
+    border-bottom-color: var(--border-lavender);
+  }
+}
+
+/* ──────────────────────────────────────────
+ * BUTTONS
+ * Simple, clean buttons following Uncodixify
+ * ────────────────────────────────────────── */
+
+button {
+  font-family: var(--font-subtitle);
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+  background: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+.btn {
+  display: inline-block;
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-subtitle);
+  font-weight: 400;
+  font-size: $type-md;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  min-height: 44px;
+  border: 2px solid transparent;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-text);
+  border-color: var(--border-lavender);
+  
+  &:hover {
+    background-color: var(--color-pastel-rose);
+    border-color: var(--border-rose);
+  }
+}
+
+.btn-secondary {
+  background-color: var(--color-bg-card);
+  color: var(--color-text-body);
+  border: 2px solid var(--border-mint);
+  
+  &:hover {
+    border-color: var(--border-sky);
+    background-color: rgba(181, 231, 211, 0.1);
+  }
+}
+
+/* ──────────────────────────────────────────
+ * IMAGES
+ * Responsive by default
+ * ────────────────────────────────────────── */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ──────────────────────────────────────────
+ * FOCUS STATES
+ * Accessibility-first focus indicators
+ * ────────────────────────────────────────── */
+
+:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(212, 181, 246, 0.2);
+}
+
+/* ──────────────────────────────────────────
+ * UTILITY CLASSES
+ * ────────────────────────────────────────── */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  
+  @media (min-width: 768px) {
+    padding: 0 var(--space-xl);
+  }
+  
+  @media (min-width: 1024px) {
+    padding: 0 var(--space-2xl);
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

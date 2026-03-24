@@ -1,0 +1,205 @@
+/*
+ * ============================================================
+ *  MEMORIAL WEBSITE — COLOUR PALETTE
+ *  Generated for use with Claude Code
+ *
+ *  All colours are defined as CSS custom properties (variables)
+ *  on the :root element, making them available globally.
+ *
+ *  Usage in CSS:    color: var(--color-heading);
+ *  Usage in JS:     getComputedStyle(el).getPropertyValue('--color-heading')
+ *
+ *  Palette philosophy:
+ *  - Floral pastels for warmth and softness
+ *  - Warm beige neutrals (never cold white or grey)
+ *  - Warm-leaning darks (never pure black)
+ *  - All tones sit in the same warm undertone family
+ *    so any combination feels harmonious
+ * ============================================================
+ */
+
+:root {
+
+  /* ──────────────────────────────────────────
+   * FLORAL PASTELS
+   * Inspired by garden blooms — use as accents,
+   * borders, and section dividers to bring
+   * life and color to the memorial site.
+   * ────────────────────────────────────────── */
+
+  /* Cherry Blossom — soft pink for borders and accents */
+  --color-pastel-rose:        #FFB6D9;
+
+  /* Lavender Dream — purple tones for dividers */
+  --color-pastel-lavender:    #D4B5F6;
+
+  /* Mint Whisper — fresh green for borders */
+  --color-pastel-mint:        #B5E7D3;
+
+  /* Peach Petal — warm peachy accents */
+  --color-pastel-peach:       #FFCBA4;
+
+  /* Sky Bloom — soft blue for variety */
+  --color-pastel-sky:         #B8D8F0;
+
+  /* Coral Blush — warm coral for highlights */
+  --color-pastel-coral:       #FFB5A7;
+
+  /* Lemon Chiffon — subtle yellow accents */
+  --color-pastel-lemon:       #FFF4A3;
+
+
+  /* ──────────────────────────────────────────
+   * NEUTRAL BACKGROUNDS & SURFACES
+   * Soft, warm backgrounds that let the pastel
+   * accents shine through.
+   * ────────────────────────────────────────── */
+
+  /* Soft Cream — outermost page background */
+  --color-bg-page:            #FFFBF7;
+
+  /* Warm Linen — primary card and panel surfaces */
+  --color-bg-card:            #FFF8F3;
+
+  /* Parchment — subtle inner containers, quote blocks */
+  --color-bg-subtle:          #FFF4ED;
+
+  /* Neutral border — subtle default border */
+  --color-border:             #E8DDD5;
+
+
+  /* ──────────────────────────────────────────
+   * TYPOGRAPHY & TEXT
+   * All text colours are warm-toned to avoid
+   * the harshness of pure black or cool grey.
+   * Use in order of visual hierarchy.
+   * ────────────────────────────────────────── */
+
+  /* Deep Soil — page titles, hero headings, name displays */
+  --color-heading:            #2A2420;
+
+  /* Driftwood — body copy, paragraphs, tribute text */
+  --color-text-body:          #5C4D47;
+
+  /* Warm Stone — secondary labels, dates, captions, metadata */
+  --color-text-muted:         #8C7B72;
+
+  /* Vibrant Rose — inline links, hovered text links */
+  --color-text-link:          #E91E8C;
+
+  /* Deep Lavender — slightly deeper on :hover/:focus */
+  --color-text-link-hover:    #9B59B6;
+
+
+  /* ──────────────────────────────────────────
+   * DARK ELEMENTS
+   * Reserved for high-contrast UI chrome like
+   * navigation bars, footers, and overlays.
+   * Warm-leaning so they don't feel cold.
+   * ────────────────────────────────────────── */
+
+  /* Midnight Bark — navbar, footer, modal overlays */
+  --color-dark:               #1A1210;
+
+  /* Deep Soil (alias) — nav text on dark backgrounds */
+  --color-dark-text:          #FAF7F4;
+
+
+  /* ──────────────────────────────────────────
+   * SEMANTIC / FUNCTIONAL
+   * Derived from the palette above — mapped to
+   * common UI roles so components stay
+   * semantically clear without hard-coding hex.
+   * ────────────────────────────────────────── */
+
+  /* Primary interactive colour (buttons, focus rings) */
+  --color-primary:            var(--color-pastel-lavender);
+
+  /* Primary button text — dark enough for contrast */
+  --color-primary-text:       var(--color-heading);
+
+  /* Accent for badges, tags, and "In Loving Memory" labels */
+  --color-accent:             var(--color-pastel-rose);
+  --color-accent-text:        var(--color-text-link);
+
+  /* Default border used across cards and inputs */
+  --color-border-default:     var(--color-border);
+
+  /* Focus ring colour for accessibility */
+  --color-focus-ring:         var(--color-pastel-lavender);
+  
+  /* Colored borders for section dividers */
+  --border-rose:              var(--color-pastel-rose);
+  --border-lavender:          var(--color-pastel-lavender);
+  --border-mint:              var(--color-pastel-mint);
+  --border-peach:             var(--color-pastel-peach);
+  --border-sky:               var(--color-pastel-sky);
+  --border-coral:             var(--color-pastel-coral);
+
+
+  /* ──────────────────────────────────────────
+   * TYPOGRAPHY
+   * All three fonts load from Google Fonts.
+   * See <link> tag required in <head>.
+   * ────────────────────────────────────────── */
+
+  /* Heading — names, hero titles, large pull quotes.
+     Great Vibes (Latin + Cyrillic). Use at 48px and above. */
+  --font-heading:   'Great Vibes', Georgia, serif;
+
+  /* Subtitle — navigation, dates, labels, badges.
+     Use weight 300 for metadata, 400 for nav links,
+     500 for badge/pill text. Add letter-spacing 0.1em
+     when set in all-caps.                             */
+  --font-subtitle:  'Jost', system-ui, sans-serif;
+
+  /* Body — paragraphs, tributes, guestbook entries.
+     Use weight 300 throughout. Italic for quotes.
+     Set at 16–18px with line-height 1.85.             */
+  --font-body:      'Bodoni Muse', Georgia, serif;
+
+}
+
+/* ──────────────────────────────────────────
+ * SPACING SCALE
+ * Consistent spacing system for margins, padding
+ * ────────────────────────────────────────── */
+:root {
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+  --space-3xl: 48px;
+  --space-4xl: 64px;
+}
+
+/* ──────────────────────────────────────────
+ * BORDER RADIUS
+ * Following Uncodixify rules: 8-12px max
+ * ────────────────────────────────────────── */
+:root {
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+}
+
+/* ──────────────────────────────────────────
+ * SHADOWS
+ * Subtle only, per Uncodixify rules
+ * ────────────────────────────────────────── */
+:root {
+  --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-card: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* ──────────────────────────────────────────
+ * TRANSITIONS
+ * 100-200ms ease, no transform effects
+ * ────────────────────────────────────────── */
+:root {
+  --transition-fast: 100ms ease;
+  --transition-normal: 150ms ease;
+  --transition-slow: 200ms ease;
+}

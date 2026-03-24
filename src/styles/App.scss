@@ -1,0 +1,29 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  
+  main {
+    flex: 1;
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(
+        90deg,
+        var(--border-rose) 0%,
+        var(--border-lavender) 25%,
+        var(--border-mint) 50%,
+        var(--border-sky) 75%,
+        var(--border-coral) 100%
+      );
+      opacity: 0.6;
+    }
+  }
+}
