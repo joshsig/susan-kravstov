@@ -7,11 +7,11 @@ import '@awesome.me/webawesome/dist/styles/webawesome.css';
 import '../styles/HoverGallery.scss';
 
 const galleryImages = [
-  { src: '/images/gallery-01.jpg', title: 'Memory 1' },
-  { src: '/images/gallery-02.jpg', title: 'Memory 2' },
-  { src: '/images/gallery-03.jpg', title: 'Memory 3' },
-  { src: '/images/gallery-04.jpg', title: 'Memory 4' },
-  { src: '/images/gallery-05.jpg', title: 'Memory 5' },
+  { src: '/images/gallery-001.jpg', title: 'Memory 1' },
+  { src: '/images/gallery-002.jpg', title: 'Memory 2' },
+  { src: '/images/gallery-003.jpg', title: 'Memory 3' },
+  { src: '/images/gallery-004.jpg', title: 'Memory 4' },
+  { src: '/images/gallery-005.jpg', title: 'Memory 5' },
 ];
 
 export const HoverGallery = () => {

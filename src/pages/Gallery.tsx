@@ -3,8 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import '../styles/Gallery.scss';
 
-const galleryImages = Array.from({ length: 20 }, (_, i) => ({
-  src: `/images/gallery-${String(i + 1).padStart(2, '0')}.jpg`,
+const GALLERY_IMAGE_COUNT = 128;
+
+const galleryImages = Array.from({ length: GALLERY_IMAGE_COUNT }, (_, i) => ({
+  src: `/images/gallery-${String(i + 1).padStart(3, '0')}.jpg`,
   title: `Memory ${i + 1}`,
 }));
 
@@ -38,7 +40,7 @@ export const Gallery = () => {
     const image = galleryImages[currentImageIndex];
     const link = document.createElement('a');
     link.href = image.src;
-    link.download = `susan-kravstov-${String(currentImageIndex + 1).padStart(2, '0')}.jpg`;
+    link.download = `susan-kravstov-${String(currentImageIndex + 1).padStart(3, '0')}.jpg`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
