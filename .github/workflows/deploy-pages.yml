@@ -28,6 +28,14 @@ jobs:
       - run: npm ci
       - run: npm run build
 
+      # Fail fast if Pages would serve dev entry (raw repo index.html references /src/main.tsx)
+      - name: Verify built index.html
+        run: |
+          if grep -qE 'src/main\.(tsx|ts|jsx|js)' dist/index.html; then
+            echo 'dist/index.html still points at Vite dev entry — upload would 404 on GitHub Pages.'
+            exit 1
+          fi
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
