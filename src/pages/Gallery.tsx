@@ -92,7 +92,8 @@ export const Gallery = () => {
         <motion.h1
           className="gallery-title"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: '-40px' }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
         >
           {t.gallery.title}
@@ -102,7 +103,8 @@ export const Gallery = () => {
           className="gallery-grid"
           variants={containerVariants}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: false, margin: '-60px' }}
         >
           {galleryImages.map((image, index) => (
             <motion.div
@@ -132,45 +134,50 @@ export const Gallery = () => {
             transition={{ duration: 0.2 }}
             onClick={closeLightbox}
           >
-            <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-              <button
-                className="lightbox-close"
-                onClick={closeLightbox}
-                aria-label={t.gallery.close}
-              >
-                ×
-              </button>
+            <button
+              type="button"
+              className="lightbox-close"
+              onClick={(e) => {
+                e.stopPropagation();
+                closeLightbox();
+              }}
+              aria-label={t.gallery.close}
+            >
+              ×
+            </button>
 
+            <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+              <img
+                src={galleryImages[currentImageIndex].src}
+                alt={galleryImages[currentImageIndex].title}
+                className="lightbox-image"
+              />
+            </div>
+
+            <div className="lightbox-chrome" onClick={(e) => e.stopPropagation()}>
               <button
+                type="button"
                 className="lightbox-nav lightbox-prev"
                 onClick={goToPrevious}
                 aria-label={t.gallery.previous}
               >
                 ‹
               </button>
-
-              <img
-                src={galleryImages[currentImageIndex].src}
-                alt={galleryImages[currentImageIndex].title}
-                className="lightbox-image"
-              />
-
               <button
+                type="button"
+                className="btn btn-primary lightbox-download"
+                onClick={downloadImage}
+              >
+                {t.gallery.download}
+              </button>
+              <button
+                type="button"
                 className="lightbox-nav lightbox-next"
                 onClick={goToNext}
                 aria-label={t.gallery.next}
               >
                 ›
               </button>
-
-              <div className="lightbox-controls">
-                <button
-                  className="btn btn-primary"
-                  onClick={downloadImage}
-                >
-                  {t.gallery.download}
-                </button>
-              </div>
             </div>
           </motion.div>
         )}

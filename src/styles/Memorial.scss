@@ -45,6 +45,17 @@
     }
   }
   
+  > .video-section,
+  > .hover-gallery-section {
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+
+    @media (min-width: 768px) {
+      padding-left: var(--space-xl);
+      padding-right: var(--space-xl);
+    }
+  }
+
   .memorial-paragraph {
     padding-left: var(--space-md);
     border-left: 3px solid var(--border-peach);

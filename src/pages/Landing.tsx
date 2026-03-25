@@ -10,13 +10,15 @@ export const Landing = () => {
       <motion.div
         className="landing-hero"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: false, margin: '-80px' }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
         <motion.div
           className="hero-image-wrapper"
           initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: false, margin: '-80px' }}
           transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
         >
           <img
@@ -29,7 +31,8 @@ export const Landing = () => {
         <motion.h1
           className="hero-name"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: '-80px' }}
           transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
         >
           {t.landing.name}
@@ -38,7 +41,8 @@ export const Landing = () => {
         <motion.p
           className="hero-dates"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: '-80px' }}
           transition={{ duration: 0.6, delay: 0.6, ease: 'easeOut' }}
         >
           {t.landing.dates}

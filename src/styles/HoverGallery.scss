@@ -6,33 +6,41 @@
   border-top: 3px solid var(--border-sky);
   
   .carousel-wrapper {
-    max-width: 100%;
+    width: 100%;
+    max-width: 920px;
+    height: 520px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: var(--space-2xl);
-    
+
     @media (min-width: 768px) {
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+      width: 920px;
+      height: 620px;
     }
-    
+
     .gallery-carousel {
       --wa-carousel-pagination-color: var(--color-pastel-lavender);
       --wa-carousel-navigation-color: var(--color-text-body);
+      /* Slide box ratio; tuned so slide height matches fixed wrapper on typical mobile widths */
+      --aspect-ratio: 10 / 13;
+      width: 100%;
+      height: 100%;
       border-radius: var(--radius-md);
       overflow: hidden;
       border: 3px solid var(--border-coral);
+
+      @media (min-width: 768px) {
+        --aspect-ratio: 920 / 620;
+      }
     }
-    
+
     .carousel-image {
       width: 100%;
-      height: auto;
-      max-height: 500px;
+      height: 100%;
+      max-height: none;
       object-fit: cover;
+      object-position: center;
       display: block;
-      
-      @media (min-width: 768px) {
-        max-height: 600px;
-      }
     }
   }
   

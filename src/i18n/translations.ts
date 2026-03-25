@@ -13,6 +13,10 @@ export interface Translations {
     title: string;
     paragraphs: string[];
   };
+  video: {
+    title: string;
+    iframeTitle: string;
+  };
   gallery: {
     title: string;
     viewFull: string;
@@ -47,6 +51,10 @@ export const translations: Record<Language, Translations> = {
         'She will be deeply missed but never forgotten.',
       ],
     },
+    video: {
+      title: 'In remembrance',
+      iframeTitle: 'Memorial video — Susan Kravstov',
+    },
     gallery: {
       title: 'Gallery',
       viewFull: 'View Full Gallery',
@@ -66,8 +74,8 @@ export const translations: Record<Language, Translations> = {
       gallery: 'Галерея',
     },
     landing: {
-      name: 'Сьюзан Кравстов',
-      dates: '[Дата рождения] – 23 марта 2026',
+      name: 'Сузанна Кравцова',
+      dates: '27 ноября 1935 – 23 марта 2026',
     },
     memorial: {
       title: 'Памяти',
@@ -78,6 +86,10 @@ export const translations: Record<Language, Translations> = {
         'Наследие Сьюзан живёт в сердцах всех, кто её знал. Её дух, её грация и её непоколебимая любовь будут помниться и цениться вечно.',
         'Её будет очень не хватать, но она никогда не будет забыта.',
       ],
+    },
+    video: {
+      title: 'В память',
+      iframeTitle: 'Видео памяти — Сьюзан Кравстова',
     },
     gallery: {
       title: 'Галерея',
