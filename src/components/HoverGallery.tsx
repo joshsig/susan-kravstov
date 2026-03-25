@@ -7,11 +7,11 @@ import '@awesome.me/webawesome/dist/styles/webawesome.css';
 import '../styles/HoverGallery.scss';
 
 const galleryImages = [
-  { src: `${import.meta.env.BASE_URL}images/gallery-001.jpg`, title: 'Memory 1' },
-  { src: `${import.meta.env.BASE_URL}images/gallery-002.jpg`, title: 'Memory 2' },
-  { src: `${import.meta.env.BASE_URL}images/gallery-003.jpg`, title: 'Memory 3' },
-  { src: `${import.meta.env.BASE_URL}images/gallery-004.jpg`, title: 'Memory 4' },
-  { src: `${import.meta.env.BASE_URL}images/gallery-005.jpg`, title: 'Memory 5' },
+  { src: `${import.meta.env.BASE_URL}images/gallery-055.jpg`, title: 'Memory 1' },
+  { src: `${import.meta.env.BASE_URL}images/gallery-041.jpg`, title: 'Memory 2' },
+  { src: `${import.meta.env.BASE_URL}images/gallery-020.jpg`, title: 'Memory 3' },
+  { src: `${import.meta.env.BASE_URL}images/gallery-068.jpg`, title: 'Memory 4' },
+  { src: `${import.meta.env.BASE_URL}images/gallery-021.jpg`, title: 'Memory 5' },
 ];
 
 export const HoverGallery = () => {
@@ -28,9 +28,9 @@ export const HoverGallery = () => {
       transition={{ duration: 0.5, ease: 'easeOut' }}
     >
       <div className="carousel-wrapper">
-        <WaCarousel 
-          pagination 
-          navigation 
+        <WaCarousel
+          pagination
+          navigation
           loop
           autoplay
           autoplayInterval={4000}

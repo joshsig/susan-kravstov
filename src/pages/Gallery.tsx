@@ -3,12 +3,20 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import '../styles/Gallery.scss';
 
-const GALLERY_IMAGE_COUNT = 128;
-
-const galleryImages = Array.from({ length: GALLERY_IMAGE_COUNT }, (_, i) => ({
-  src: `${import.meta.env.BASE_URL}images/gallery-${String(i + 1).padStart(3, '0')}.jpg`,
-  title: `Memory ${i + 1}`,
-}));
+const imageModules = import.meta.glob('../../public/images/gallery-*.jpg', { eager: true, as: 'url' });
+const galleryImages = Object.entries(imageModules)
+  .map(([path, url]) => {
+    const filename = path.split('/').pop() || '';
+    const match = filename.match(/gallery-(\d+)\.jpg/);
+    const number = match ? parseInt(match[1], 10) : 0;
+    return { path, url: url as string, number, filename };
+  })
+  .sort((a, b) => a.number - b.number)
+  .map((img, i) => ({
+    src: img.url,
+    title: `Memory ${i + 1}`,
+    filename: img.filename,
+  }));
 
 export const Gallery = () => {
   const { t } = useLanguage();
@@ -40,7 +48,7 @@ export const Gallery = () => {
     const image = galleryImages[currentImageIndex];
     const link = document.createElement('a');
     link.href = image.src;
-    link.download = `susan-kravstov-${String(currentImageIndex + 1).padStart(3, '0')}.jpg`;
+    link.download = image.filename;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -49,7 +57,7 @@ export const Gallery = () => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!lightboxOpen) return;
-      
+
       if (e.key === 'Escape') closeLightbox();
       if (e.key === 'ArrowLeft') goToPrevious();
       if (e.key === 'ArrowRight') goToNext();
